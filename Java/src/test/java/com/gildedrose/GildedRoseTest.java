@@ -11,8 +11,8 @@ class GildedRoseTest {
     void foo() {
         Item[] items = new Item[]{new Item("foo", 0, 0)};
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals("foo", app.items[0].name);
+        app.updateStore();
+        assertEquals("foo", app.items[0].getName());
     }
 
     private static GildedRose getGildedRose() {
@@ -32,7 +32,7 @@ class GildedRoseTest {
     void update_quality_once() {
         GildedRose gildedRose = getGildedRose();
 
-        gildedRose.updateQuality();
+        gildedRose.updateStore();
 
         assertThat(gildedRose.items)
             .extracting("name").containsExactly(
@@ -59,8 +59,8 @@ class GildedRoseTest {
     void update_quality_twice() {
         GildedRose gildedRose = getGildedRose();
 
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
+        gildedRose.updateStore();
+        gildedRose.updateStore();
 
         assertThat(gildedRose.items)
             .extracting("name").containsExactly(
@@ -87,9 +87,9 @@ class GildedRoseTest {
     void update_quality_thrice() {
         GildedRose gildedRose = getGildedRose();
 
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
-        gildedRose.updateQuality();
+        gildedRose.updateStore();
+        gildedRose.updateStore();
+        gildedRose.updateStore();
 
         assertThat(gildedRose.items)
             .extracting("name").containsExactly(
@@ -117,7 +117,7 @@ class GildedRoseTest {
         GildedRose gildedRose = getGildedRose();
 
         for (int i = 0; i < 10; i++) {
-            gildedRose.updateQuality();
+            gildedRose.updateStore();
         }
 
         assertThat(gildedRose.items)
@@ -146,7 +146,7 @@ class GildedRoseTest {
         GildedRose gildedRose = getGildedRose();
 
         for (int i = 0; i < 20; i++) {
-            gildedRose.updateQuality();
+            gildedRose.updateStore();
         }
 
         assertThat(gildedRose.items)
@@ -175,7 +175,7 @@ class GildedRoseTest {
         GildedRose gildedRose = getGildedRose();
 
         for (int i = 0; i < 50; i++) {
-            gildedRose.updateQuality();
+            gildedRose.updateStore();
         }
 
         assertThat(gildedRose.items)
@@ -204,7 +204,7 @@ class GildedRoseTest {
         GildedRose gildedRose = getGildedRose();
 
         for (int i = 0; i < 100; i++) {
-            gildedRose.updateQuality();
+            gildedRose.updateStore();
         }
 
         assertThat(gildedRose.items)
